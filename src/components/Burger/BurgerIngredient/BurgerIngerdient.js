@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BreadBottom } from './BottomBread';
 import { BreadTop } from './BreadTop';
-import { Meat } from '@/components/Burger/BurgerIngredient/Meat';
-import { Cheese } from '@/components/Burger/BurgerIngredient/Cheese';
-import { Salad } from '@/components/Burger/BurgerIngredient/Salad';
-import { Bacon } from '@/components/Burger/BurgerIngredient/Bacon';
+import { Meat } from './Meat';
+import { Cheese } from './Cheese';
+import { Salad } from './Salad';
+import { Bacon } from './Bacon';
 
 class BurgerIngerdient extends Component {
   render() {
@@ -13,22 +13,22 @@ class BurgerIngerdient extends Component {
     let ingredient = null;
     switch (type) {
       case 'bread-bottom':
-        ingredient = BreadBottom;
+        ingredient = <BreadBottom />;
         break;
       case 'bread-top':
-        ingredient = BreadTop;
+        ingredient = <BreadTop />;
         break;
       case 'meat':
-        ingredient = Meat;
+        ingredient = <Meat />;
         break;
       case 'cheese':
-        ingredient = Cheese;
+        ingredient = <Cheese />;
         break;
       case 'salad':
-        ingredient = Salad;
+        ingredient = <Salad />;
         break;
       case 'bacon':
-        ingredient = Bacon;
+        ingredient = <Bacon />;
         break;
       default:
         ingredient = null;
