@@ -24,13 +24,25 @@ const Container = styled.div`
   }
 `;
 
-const Burger = () => (
-  <Container>
-    <BurgerIngredient type="bread-top" />
-    <BurgerIngredient type="cheese" />
-    <BurgerIngredient type="meat" />
-    <BurgerIngredient type="bread-bottom" />
-  </Container>
-);
+const Burger = props => {
+  const { ingredients } = props;
+  let renderIngredients = Object.keys(ingredients)
+    .map(ingName =>
+      [...Array(ingredients[ingName])].map((_, i) => (
+        <BurgerIngredient key={ingName + i} type={ingName} />
+      ))
+    )
+    .reduce((acc, item) => acc.concat(item), []);
+  if (renderIngredients.length === 0) {
+    renderIngredients = <p>Please, start adding ingredients</p>;
+  }
+  return (
+    <Container>
+      <BurgerIngredient type="bread-top" />
+      {renderIngredients}
+      <BurgerIngredient type="bread-bottom" />
+    </Container>
+  );
+};
 
 export default Burger;
