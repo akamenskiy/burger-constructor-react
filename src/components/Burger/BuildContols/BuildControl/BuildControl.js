@@ -56,12 +56,12 @@ const More = styled(Button)`
 `;
 
 export const BuildControl = props => {
-  const { label } = props;
+  const { label, clicked } = props;
   return (
     <Container>
       <Label>{label}</Label>
       <Less>Less</Less>
-      <More>More</More>
+      <More onClick={clicked}>More</More>
     </Container>
   );
 };
