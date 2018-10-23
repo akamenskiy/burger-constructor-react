@@ -26,7 +26,9 @@ export const BuildControls = props => (
       <BuildControl
         key={control.type}
         label={control.label}
-        clicked={() => props.handelAddIngredient(control.type)}
+        handelAddIngredient={() => props.handelAddIngredient(control.type)}
+        handelRemoveIngredient={() => props.handelRemoveIngredient(control.type)}
+        isDisabled={props.isDisabled[control.type]}
       />
     ))}
   </Container>
